@@ -7,24 +7,54 @@ import About from "./pages/About.jsx";
 import { seedTransactions } from "./data/seedTransactions.js";
 import { useLocalStorage } from "./hooks/useLocalStorage.js";
 import { getTotals } from "./utils/format.js";
+import Swal from "sweetalert2";
 
 export default function App() {
   const [page, setPage] = useState("dashboard");
-  const [transactions, setTransactions] = useLocalStorage("spendly-transactions", seedTransactions);
+  const [transactions, setTransactions] = useLocalStorage(
+    "spendly-transactions",
+    seedTransactions,
+  );
 
   // Totals are derived from transactions so the numbers stay in sync automatically.
   const totals = useMemo(() => getTotals(transactions), [transactions]);
 
   function addTransaction(newTransaction) {
-    setTransactions((currentTransactions) => [newTransaction, ...currentTransactions]);
+    setTransactions((currentTransactions) => [
+      newTransaction,
+      ...currentTransactions,
+    ]);
   }
 
-  function deleteTransaction(transactionId) {
-    const shouldDelete = window.confirm("Delete this transaction?");
-    if (!shouldDelete) return;
+  async function deleteTransaction(transactionId) {
+    const result = await Swal.fire({
+      title: "Delete transaction?",
+      text: "This transaction will be permanently deleted.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete it",
+      cancelButtonText: "Cancel",
+      confirmButtonColor: "#e11d48",
+      cancelButtonColor: "#64748b",
+      reverseButtons: true,
+    });
+
+    // Cancel করলে transaction delete হবে না
+    if (!result.isConfirmed) return;
+
+    // Transaction delete করা
     setTransactions((currentTransactions) =>
-      currentTransactions.filter((item) => item.id !== transactionId)
+      currentTransactions.filter((item) => item.id !== transactionId),
     );
+
+    // Delete সফল হলে success message
+    Swal.fire({
+      title: "Deleted!",
+      text: "Transaction deleted successfully.",
+      icon: "success",
+      timer: 1500,
+      showConfirmButton: false,
+    });
   }
 
   function resetDemoData() {
@@ -35,10 +65,18 @@ export default function App() {
     <div className="min-h-screen bg-surface">
       <Navbar page={page} setPage={setPage} />
       {page === "dashboard" && (
-        <Dashboard transactions={transactions} totals={totals} onAdd={addTransaction} setPage={setPage} />
+        <Dashboard
+          transactions={transactions}
+          totals={totals}
+          onAdd={addTransaction}
+          setPage={setPage}
+        />
       )}
       {page === "transactions" && (
-        <Transactions transactions={transactions} onDelete={deleteTransaction} />
+        <Transactions
+          transactions={transactions}
+          onDelete={deleteTransaction}
+        />
       )}
       {page === "about" && <About onReset={resetDemoData} />}
       <Footer />

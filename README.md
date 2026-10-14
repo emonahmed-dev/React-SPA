@@ -1,55 +1,106 @@
-# Spendly — Personal Finance Tracker
+# 💚 Spendly — Personal Finance Tracker
 
-Spendly is a responsive personal finance tracker built with React and JavaScript. It lets you record income and expenses, review totals, and search/filter your transaction history.
+Spendly is a responsive personal finance tracking web application built with React and JavaScript. It helps users manage their income and expenses, track their balance, and keep their transactions organized through a clean and user-friendly interface.
 
-## Features
+This project was developed as part of my **CodeOrbit Tech Internship** to strengthen my React fundamentals and practice building an interactive single-page application.
 
-- Dashboard with balance, income, and expense summaries
-- Add income or expense transactions
-- Search transactions by title or category
-- Filter by transaction type and category
-- Delete transactions
-- Save data in browser LocalStorage
-- Responsive layout for mobile, tablet, and desktop
-- About page with a reset-demo-data option
+## ✨ Features
 
-## Tech stack
+- **Dashboard Overview:** View your current balance, total income, and total expenses.
+- **Transaction Management:** Add income and expense transactions with relevant details.
+- **Transaction History:** View and manage your financial transactions.
+- **Search & Filter:** Find transactions and filter them based on relevant criteria.
+- **Delete Transactions:** Remove transactions with a confirmation alert.
+- **Automatic Calculations:** Financial summaries update automatically when transactions change.
+- **Local Storage:** Keep transaction data saved in the browser across page reloads.
+- **Responsive Design:** Enjoy a consistent experience across desktop, tablet, and mobile devices.
+- **About Page:** Explore information about the application.
+
+## 🛠️ Technologies Used
 
 - React
-- JavaScript
+- JavaScript (ES6+)
 - Vite
 - Tailwind CSS
-- Lucide React icons
-- Browser LocalStorage
+- SweetAlert2
+- Browser Local Storage
+- HTML5
 
-## Run locally
+## 🚀 Getting Started
 
-1. Install Node.js (LTS) if it is not installed.
-2. Extract or open this project folder in your code editor.
-3. Open the terminal in this folder.
-4. Install the dependencies:
+Follow these steps to run the project locally.
 
-   ```bash
-   npm install
-   ```
+### Prerequisites
 
-5. Start the development server:
+Make sure you have the following installed:
 
-   ```bash
-   npm run dev
-   ```
+- [Node.js](https://nodejs.org/)
+- npm (included with Node.js)
+- Git (optional, for cloning the repository)
 
-6. Open the local URL printed in your terminal (usually `http://localhost:5173`).
+### Installation
 
-## Production build
+**1. Clone the repository**
 
 ```bash
-npm run build
-npm run preview
+git clone https://github.com/emonahmed-dev/CodeOrbit_React-SPA.git
 ```
 
-## Notes
+**2. Navigate to the project directory**
 
-- This is a frontend demonstration project. It does not connect to a bank or use a backend.
-- Transactions are saved in the current browser only.
-- The starting transactions are sample/demo data.
+```bash
+cd CodeOrbit_React-SPA
+```
+
+**3. Install dependencies**
+
+```bash
+npm install
+```
+
+**4. Start the development server**
+
+```bash
+npm run dev
+```
+
+**5. Open the local URL**
+
+Open the URL displayed in your terminal, usually `http://localhost:5173`, in your browser.
+
+## 💾 Data Storage
+
+Spendly uses the browser's Local Storage to persist transaction data. This means your transactions remain available after refreshing the page in the same browser.
+
+Please note that this is a frontend-only application. Data is stored locally in the browser rather than in a remote database, so it is not automatically synchronized across devices.
+
+## 📱 Responsive Interface
+
+The application is designed to work on different screen sizes, providing a user-friendly interface on desktop, tablet, and mobile devices.
+
+## 🎯 Project Goals
+
+The main goals of this project were to:
+
+- Practice building a React single-page application.
+- Strengthen JavaScript fundamentals and state management.
+- Learn to create reusable and interactive UI components.
+- Work with browser Local Storage.
+- Implement search, filtering, and transaction management.
+- Improve responsive UI development skills.
+
+## 🔮 Future Improvements
+
+- User authentication and individual accounts.
+- Cloud database integration.
+- Transaction editing and advanced filtering.
+- Charts and financial reports.
+- Monthly budgets and spending insights.
+
+## 👨‍💻 Author
+
+Developed by me as part of my CodeOrbit Tech Internship.
+
+## 📄 License
+
+This project was created for learning and internship purposes.
