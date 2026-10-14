@@ -1,0 +1,27 @@
+
+# Dependencies
+node_modules/
+
+# Production build
+dist/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Local editor settings
+.vscode/
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Local development files
+*.local
